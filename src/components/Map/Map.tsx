@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 're
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import type { LatLngBoundsExpression } from 'leaflet';
-import { toBlob } from 'html-to-image';
 
 import markerIcon from '../../assets/marker.svg';
 
