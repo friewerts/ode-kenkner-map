@@ -1,7 +1,8 @@
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import React, { useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import type { LatLngBoundsExpression } from 'leaflet';
 
 import iconMarker from 'leaflet/dist/images/marker-icon.png';
 import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
@@ -31,27 +32,35 @@ interface MapProps {
     addresses: Address[];
 }
 
-const MapComponent: React.FC<MapProps> = ({ addresses }) => {
-    // Oldsum coordinates
-    const position: [number, number] = [54.7294, 8.4551];
+// Oldsum bounds: [south-west, north-east]
+const OLDSUM_BOUNDS: LatLngBoundsExpression = [
+    [54.734, 8.444],  // south-west corner
+    [54.724, 8.466]   // north-east corner
+];
 
+// Helper component to fit bounds on mount
+const FitBounds: React.FC = () => {
+    const map = useMap();
+    useEffect(() => {
+        map.fitBounds(OLDSUM_BOUNDS, { padding: [0, 0] });
+    }, [map]);
+    return null;
+};
+
+const MapComponent: React.FC<MapProps> = ({ addresses }) => {
     return (
         <MapContainer 
-            center={position} 
-            zoom={16} 
-            minZoom={16} 
+            bounds={OLDSUM_BOUNDS}
             style={{ 
                 height: 'calc(100vh - 80px)', 
                 width: '100%', 
                 borderRadius: '12px',
-                // Use Dark Matter tiles (black bg, light lines).
-                // 'lighten' or 'screen' blend mode will make the black background transparent 
-                // (showing the green body bg) and keep the light lines visible.
                 mixBlendMode: 'screen',
                 filter: 'brightness(2.5) contrast(1.5)'
             }}
             zoomControl={false}
         >
+            <FitBounds />
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                 url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"

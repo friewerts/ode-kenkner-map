@@ -2,7 +2,13 @@
   {
     "id": "1",
     "name": "Haus des Gastes",
-    "lat": 54.733,
-    "lng": 8.433
-  }
+    "lat": 54.734,
+    "lng": 8.444
+  },
+  {
+    "id": "2",
+    "name": "Haus des Gastes 2",
+    "lat": 54.724,
+    "lng": 8.466
+  } 
 ]
