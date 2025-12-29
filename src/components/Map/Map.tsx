@@ -48,7 +48,7 @@ const MapComponent: React.FC<MapProps> = ({ addresses }) => {
                 // 'lighten' or 'screen' blend mode will make the black background transparent 
                 // (showing the green body bg) and keep the light lines visible.
                 mixBlendMode: 'screen',
-                filter: 'brightness(1.2) contrast(1.2)'
+                filter: 'brightness(2.5) contrast(1.5)'
             }}
             zoomControl={false}
         >
