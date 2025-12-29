@@ -4,22 +4,15 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import type { LatLngBoundsExpression } from 'leaflet';
 
-import iconMarker from 'leaflet/dist/images/marker-icon.png';
-import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import markerIcon from '../../assets/marker.svg';
 
-// Fix for default Leaflet icon not showing correctly in standard Webpack/Vite builds
-const DefaultIcon = L.icon({
-    iconUrl: iconMarker,
-    iconRetinaUrl: iconRetina,
-    shadowUrl: iconShadow,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41],
+// Custom musical note marker icon
+const MusicNoteIcon = L.icon({
+    iconUrl: markerIcon,
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
+    popupAnchor: [0, -12],
 });
-
-L.Marker.prototype.options.icon = DefaultIcon;
 
 interface Address {
     id: string;
@@ -68,7 +61,7 @@ const MapComponent: React.FC<MapProps> = ({ addresses }) => {
                 url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
             />
             {addresses.map((addr) => (
-                <Marker key={addr.id} position={[addr.lat, addr.lng]}>
+                <Marker key={addr.id} position={[addr.lat, addr.lng]} icon={MusicNoteIcon}>
                     <Popup>
                         <strong>{addr.name}</strong>
                     </Popup>
