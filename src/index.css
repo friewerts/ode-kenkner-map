@@ -9,6 +9,7 @@
 
 html {
   height: -webkit-fill-available;
+  background: var(--color-primary-bg-outer);
 }
 
 body {
@@ -69,4 +70,78 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.share-button {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  width: 54px;
+  height: 54px;
+  border-radius: 27px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.share-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.share-button:active {
+  transform: translateY(1px);
+}
+
+.share-button svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+ .user-location-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-location-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
