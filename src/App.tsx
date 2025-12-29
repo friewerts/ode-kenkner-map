@@ -1,25 +1,35 @@
 import React from 'react';
 import MapComponent from './components/Map/Map';
 import addresses from './data/addresses.json';
+import logo from './assets/logo.svg';
 
 const App: React.FC = () => {
   return (
-    <div style={{ padding: '20px 0', display: 'flex', flexDirection: 'column', height: '100vh' }}>
-      <header style={{ marginBottom: '20px', textAlign: 'center' }}>
-        <h1 style={{ 
-          fontSize: '2rem', 
-          fontWeight: 700, 
-          margin: 0,
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase'
-        }}>
-          Oldsum
-        </h1>
-        <p style={{ margin: '5px 0 0', opacity: 0.9 }}>Friesisch und Gut</p>
+    <div style={{ padding: '0', display: 'flex', flexDirection: 'column', height: '100vh' }}>
+      <header style={{ 
+        position: "fixed", 
+        top: 0, 
+        left: 0, 
+        right: 0, 
+        zIndex: 10, 
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        padding: '20px',
+        background: 'linear-gradient(to bottom, rgba(73, 101, 76, 0.8) 0%, rgba(73, 101, 76, 0) 100%)',
+        pointerEvents: 'none'
+      }}>
+        <img 
+          src={logo} 
+          alt="Oldsum Logo" 
+          style={{ 
+            height: '28px', 
+            filter: 'brightness(0) invert(1)',
+            pointerEvents: 'auto'
+          }} 
+        />
       </header>
-      <main style={{ flex: 1 }}>
-        <MapComponent addresses={addresses} />
-      </main>
+      <MapComponent addresses={addresses} />
     </div>
   );
 };

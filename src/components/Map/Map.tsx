@@ -47,11 +47,11 @@ const MapComponent: React.FC<MapProps> = ({ addresses }) => {
             minZoom={14}
             maxZoom={18}
             style={{ 
-                height: 'calc(100vh - 80px)', 
+                height: '100vh', 
                 width: '100%', 
                 borderRadius: '0',
                 mixBlendMode: 'screen',
-                filter: 'brightness(2.5) contrast(1.5)'
+                filter: 'brightness(2) contrast(1.1)'
             }}
             zoomControl={false}
         >
