@@ -88,8 +88,9 @@ const MapComponent: React.FC<MapProps> = ({ addresses }) => {
             if (navigator.share && navigator.canShare({ files: [file] })) {
                 await navigator.share({
                     files: [file],
-                    title: 'Oldsum Kenkner Karte',
-                    text: 'Schau mal, hier sind wir in Oldsum!'
+                    title: 'Oldsumer Kenkner Karte',
+                    text: 'Schau mal, hier kann man in Oldsum überall kenknern!',
+                     url: 'https://kenknen.oldsum.de'
                 });
             } else {
                 const url = URL.createObjectURL(blob);
