@@ -51,7 +51,8 @@ const MapComponent: React.FC<MapProps> = ({ addresses }) => {
                 width: '100%', 
                 borderRadius: '0',
                 mixBlendMode: 'screen',
-                filter: 'brightness(2) contrast(1.1)'
+                filter: 'brightness(2) contrast(1.1)',
+                background: '#425B44'
             }}
             zoomControl={false}
         >
