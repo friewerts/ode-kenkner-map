@@ -7,15 +7,22 @@
   --font-main: 'Montserrat', sans-serif;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: var(--font-main);
+  background: var(--color-primary-bg-outer); /* Fallback color */
   background: radial-gradient(circle, var(--color-primary-bg-inner) 0%, var(--color-primary-bg-outer) 100%);
   color: var(--color-text);
   min-height: 100vh;
+  min-height: 100svh; /* Modern mobile viewport height */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; /* Prevent bounce if desired on map app */
 }
 
 * {

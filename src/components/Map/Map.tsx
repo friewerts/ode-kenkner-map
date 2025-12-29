@@ -47,7 +47,7 @@ const MapComponent: React.FC<MapProps> = ({ addresses }) => {
             minZoom={14}
             maxZoom={18}
             style={{ 
-                height: '100vh', 
+                height: '100svh', 
                 width: '100%', 
                 borderRadius: '0',
                 mixBlendMode: 'screen',
