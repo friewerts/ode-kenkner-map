@@ -51,10 +51,12 @@ const MapComponent: React.FC<MapProps> = ({ addresses }) => {
     return (
         <MapContainer 
             bounds={OLDSUM_BOUNDS}
+            minZoom={14}
+            maxZoom={18}
             style={{ 
                 height: 'calc(100vh - 80px)', 
                 width: '100%', 
-                borderRadius: '12px',
+                borderRadius: '0',
                 mixBlendMode: 'screen',
                 filter: 'brightness(2.5) contrast(1.5)'
             }}

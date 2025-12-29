@@ -4,7 +4,7 @@ import addresses from './data/addresses.json';
 
 const App: React.FC = () => {
   return (
-    <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', height: '100vh' }}>
+    <div style={{ padding: '20px 0', display: 'flex', flexDirection: 'column', height: '100vh' }}>
       <header style={{ marginBottom: '20px', textAlign: 'center' }}>
         <h1 style={{ 
           fontSize: '2rem', 
