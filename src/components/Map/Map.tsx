@@ -86,7 +86,7 @@ const MapComponent: React.FC<MapProps> = ({ addresses }) => {
     const handleShare = async () => {
         setIsSharing(true);
         try {
-            const response = await fetch('/kenkner-map-2025.png');
+            const response = await fetch('/kenkner-map-2025-v2.png');
             const blob = await response.blob();
             const file = new File([blob], 'kenkner-map-2025.png', { type: 'image/png' });
             
