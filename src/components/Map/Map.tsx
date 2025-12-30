@@ -39,8 +39,8 @@ const UserLocation: React.FC = () => {
     const userIcon = React.useMemo(() => L.divIcon({
         className: 'user-location-marker',
         html: '<div class="user-location-dot"></div>',
-        iconSize: [20, 20],
-        iconAnchor: [10, 10]
+        iconSize: [16, 16],
+        iconAnchor: [8, 8]
     }), []);
 
     const map = useMapEvents({

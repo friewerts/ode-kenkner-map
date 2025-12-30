@@ -10,7 +10,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'logo.svg', 'pwa-icon.png'],
       manifest: {
-        name: 'Oldsum Kenkner Map',
+        name: 'Oldsumer Kenkner Karte',
         short_name: 'Oldsum Map',
         description: 'Interactive map of Oldsum',
         theme_color: '#49654C',
