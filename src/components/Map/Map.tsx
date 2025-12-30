@@ -34,6 +34,7 @@ const OLDSUM_BOUNDS: LatLngBoundsExpression = [
 // User location indicator component
 const UserLocation: React.FC = () => {
     const [position, setPosition] = useState<L.LatLng | null>(null);
+    const [hasCentered, setHasCentered] = useState(false);
     
     const userIcon = React.useMemo(() => L.divIcon({
         className: 'user-location-marker',
@@ -47,6 +48,10 @@ const UserLocation: React.FC = () => {
             const bounds = L.latLngBounds(OLDSUM_BOUNDS);
             if (bounds.contains(e.latlng)) {
                 setPosition(e.latlng);
+                if (!hasCentered) {
+                    map.setView(e.latlng, 15);
+                    setHasCentered(true);
+                }
             } else {
                 setPosition(null);
             }
